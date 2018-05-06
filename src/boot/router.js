@@ -1,69 +1,77 @@
-/* ENRUTADOR BASADO EN HASH '#vista=[...]' */
+/*
+ * BASIC ROUTER HASH BASED '#view=[...]'
+ */
+
+/* globals define, require, $, Vue */
 
 define(function () {
 
-    window.router = {
-        src: window.src ? window.src : "src",
-        actualizar: function (def) {
-            var vista = _getNombreVista(def);
-            this.cargar(vista);
-        },
-        cargar: function (vista) {
-            if (!vista) {
-                return;
-            }
+	window.router = {
+		src: window.src ? window.src : "src",
+		update: function (def) {
+			var view = _getViewName(def);
+			this.load(view);
+		},
+		load: function (view) {
+			if (!view) {
+				return;
+			}
 
-            var url = window.src + '/modulos/vista/' + vista + '/' + vista + '.html';
+			var url = this.src + "/modules/view/" + view + "/" + view + ".html";
 
-            require(["vue!" + url], function (vista) {
-                window.app = new Vue(vista).$mount('#app > *:first-child');
-            });
-        }
-    }
+			require(["vue!" + url], function (view) {
+				window.app = new Vue(view).$mount("#app > *:first-child");
+			});
+		}
+	};
 
-    //DEFINIR COMO FUNCION
-    return function () {
-        //EVENTO DE CAMBIO DE HASH
-        $(window).on("hashchange", function () {
-            window.router.actualizar();
-        });
+	/*
+	 * PRIVATE FUNCTIONS:
+	 */
 
-        //AUTO-INICIALIZAR:
-        window.router.actualizar('inicio');
-    };
+	// FUNCTION DEFINITION
+	return function () {
+		// HASH CHANGE EVENT
+		$(window).on("hashchange", function () {
+			window.router.update();
+		});
 
-    //OBTENER EL MODULO VISTA
-    function _getNombreVista(def) {
+		// AUTO-INIT:
+		window.router.update("home");
+	};
 
-        var hash = _getUrlParameter(location.hash, "view") || def;
-        if (!hash) {
-            return;
-        }
+	// GET VIEW MODULE
+	function _getViewName(def) {
 
-        //ANHADIR CLASE 'vista_'
-        //https://stackoverflow.com/questions/2644299/jquery-removeclass-wildcard
-        $("html").removeClass(function (index, className) {
-            return (className.match(/(^|\s)vista_\S+/g) || []).join(' ');
-        });
-        $("html").addClass("vista_" + hash);
+		var hash = _getUrlParameter(location.hash, "view") || def;
+		if (!hash) {
+			return;
+		}
 
-        return hash;
-    }
+		// ADD 'view_' CLASS
+		//https://stackoverflow.com/questions/2644299/jquery-removeclass-wildcard
+		$("html").removeClass(function (index, className) {
+			return (className.match(/(^|\s)view_\S+/g) || []).join(" ");
+		});
+		$("html").addClass("view_" + hash);
 
-    //OBTENER PARAMETRO DEL QUERY URL
-    //https://stackoverflow.com/questions/19491336/get-url-parameter-jquery-or-how-to-get-query-string-values-in-js
-    function _getUrlParameter(str, sParam) {
-        var sPageURL = decodeURIComponent(str.substring(1)),
-            sURLVariables = sPageURL.split('&'),
-            sParameterName,
-            i;
+		return hash;
+	}
 
-        for (i = 0; i < sURLVariables.length; i++) {
-            sParameterName = sURLVariables[i].split('=');
+	// GET QUERY URL PARAM
+	//https://stackoverflow.com/questions/19491336/get-url-parameter-jquery-or-how-to-get-query-string-values-in-js
+	function _getUrlParameter(str, sParam) {
+		var sPageURL = decodeURIComponent(str.substring(1)),
+			sURLVariables = sPageURL.split("&"),
+			sParameterName,
+			i;
 
-            if (sParameterName[0] === sParam) {
-                return sParameterName[1] === undefined ? true : sParameterName[1];
-            }
-        }
-    }
+		for (i = 0; i < sURLVariables.length; i++) {
+			sParameterName = sURLVariables[i].split("=");
+
+			if (sParameterName[0] === sParam) {
+				return sParameterName[1] === undefined ? true : sParameterName[1];
+			}
+		}
+	}
 });

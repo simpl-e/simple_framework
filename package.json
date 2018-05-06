@@ -1,0 +1,22 @@
+{
+  "name": "simple_framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simpl-e/simple_framework.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/simpl-e/simple_framework/issues"
+  },
+  "homepage": "https://github.com/simpl-e/simple_framework#readme",
+  "devDependencies": {
+    "jslint": "^0.12.0"
+  }
+}
