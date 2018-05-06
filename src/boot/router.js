@@ -23,7 +23,7 @@ define(function () {
 
     //DEFINIR COMO FUNCION
     return function () {
-        //HASH CHANGE EVENT
+        //EVENTO DE CAMBIO DE HASH
         $(window).on("hashchange", function () {
             window.router.actualizar();
         });
@@ -32,7 +32,7 @@ define(function () {
         window.router.actualizar('inicio');
     };
 
-    //OBTENER EL MÓDULO VISTA
+    //OBTENER EL MODULO VISTA
     function _getNombreVista(def) {
 
         var hash = _getUrlParameter(location.hash, "view") || def;
@@ -40,7 +40,7 @@ define(function () {
             return;
         }
 
-        //AÑADIR CLASE 'vista_'
+        //ANHADIR CLASE 'vista_'
         //https://stackoverflow.com/questions/2644299/jquery-removeclass-wildcard
         $("html").removeClass(function (index, className) {
             return (className.match(/(^|\s)vista_\S+/g) || []).join(' ');
