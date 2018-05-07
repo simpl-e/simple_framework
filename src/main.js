@@ -7,7 +7,7 @@ window.main = function () {
 		waitSeconds: 0, //prevent timeout by requirejs
 		paths: {
 			text: "https://cdnjs.cloudflare.com/ajax/libs/require-text/2.0.12/text.min",
-			css: "https://cdnjs.cloudflare.com/ajax/libs/require-css/0.1.10/css",
+			requirejs_css: "https://cdnjs.cloudflare.com/ajax/libs/require-css/0.1.10/css",
 			vue: "https://cdn.rawgit.com/edgardleal/require-vuejs/aeaff6db/dist/require-vuejs" //Mismatched anonymous define() module
 			,
 			jquery: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery",
@@ -19,7 +19,7 @@ window.main = function () {
 		},
 		map: {
 			"*": {
-				css: "css"
+				requirejs_css: "requirejs_css"
 			}
 		},
 		config: {
@@ -59,15 +59,15 @@ window.main = function () {
 
 	var require_boot = [
 		// CSS LIBS
-		"css!https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome",
-		"css!https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min", //"bootstrap_notify" NEED
+		"requirejs_css!https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome",
+		"requirejs_css!https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min", //"bootstrap_notify" NEED
 		// PRE LOAD
 		"jquery", "Vue", "axios", "notify"
 	];
 
 	// NOT ESSENTIAL AND DELAYABLE LIBS
 	var require_delay = [
-		"css!https://cdn.rawgit.com/simpl-e/simple_vue_framework/master/src/styles/bootstrap-modal-pages",
+		"requirejs_css!https://cdn.rawgit.com/simpl-e/simple_vue_framework/master/src/styles/bootstrap-modal-pages",
 		"bootstrap"
 	];
 
