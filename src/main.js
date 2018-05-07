@@ -67,7 +67,7 @@ window.main = function () {
 
 	// NOT ESSENTIAL AND DELAYABLE LIBS
 	var require_delay = [
-		"css!../../libs/bootstrap-modal-pages",
+		"css!https://cdn.rawgit.com/simpl-e/simple_vue_framework/master/src/styles/bootstrap-modal-pages",
 		"bootstrap"
 	];
 
