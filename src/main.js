@@ -35,7 +35,7 @@ window.main = function () {
 			bootstrap: ["jquery"],
 			bootstrapMD: ["jquery", "bootstrap", "popper.js"]
 		},
-		exclude: ["require-css/normalize"],
+		exclude: ["requirejs_css/normalize"],
 		catchError: true
 	};
 
