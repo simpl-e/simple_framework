@@ -10,6 +10,8 @@
     }
 }(this, function () {
 
+    return function(){
+	    
 	var config = {
 		waitSeconds: 0, //prevent timeout by requirejs
 		paths: {
@@ -83,5 +85,5 @@
 		require_boot: require_boot,
 		require_delay: require_delay
 	};
-
+    }
 }));
