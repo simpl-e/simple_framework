@@ -18,7 +18,7 @@ define(function () {
 			return response;
 		}, function (error) {
 			errorHandle(error.response.data, error.response.status, error.response.statusText);
-			return error;
+			return error.response;
 		});
 
 		// REQUIRE
