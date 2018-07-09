@@ -22,6 +22,7 @@
 			polyfill: "//cdn.polyfill.io/v2/polyfill.min.js?features=es6",
 			jquery: "//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery",
 			Vue2: "//cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue",
+			vuex: "https://cdnjs.cloudflare.com/ajax/libs/vuex/3.0.1/vuex.min",
 			bootstrap: "//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle",
 			axioshttp: "//cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min",
 			popper: "//unpkg.com/popper.js@1.12.6/dist/umd/popper",
